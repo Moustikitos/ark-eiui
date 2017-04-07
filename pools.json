@@ -1,0 +1,67 @@
+{
+  "doom": {
+    "url": "https://forum.ark.io/topic/193/okinawa-delegate-name-doom-70-profit-sharing-pool",
+    "sharing": 70.0
+  },
+  "frank": {
+    "url": "https://forum.ark.io/topic/145/frank-delegate-vote-to-help-ark-succeed-30-sharing",
+    "sharing": 30.0
+  },
+  "wes": {
+    "url": "https://forum.ark.io/topic/165/wes-80-profit-sharing-pool-20-fund-project-x-secure-anonymous-quantum-safe-messaging-platform",
+    "sharing": 80.0
+  },
+  "kiashaan": {
+    "url": "https://forum.ark.io/topic/199/delegate-proposal-kiashaan-24-7-node-support-now-70-profit-sharing-pool-automatic-payments",
+    "sharing": 70.0
+  },
+  "anamix": {
+    "url": "https://forum.ark.io/topic/184/anamix-delegate-70-sharing-profit-pool",
+    "sharing": 70.0
+  },
+  "corsaro": {
+    "url": "https://forum.ark.io/topic/183/corsaro-a-miner-to-count-on-50-shared-with-voters-at-start",
+    "sharing": 50.0
+  },
+  "pool.arkno.de": {
+    "url": "http://pool.arkno.de",
+    "sharing": 75.0
+  },
+  "jamiec79": {
+    "url": "http://ark-news.com/ AND https://forum.ark.io/topic/146/jamiec79-profit-share-community-investment-proposal-bring-ark-to-the-world",
+    "sharing": 60.0
+  },
+  "arkpool": {
+    "url": "https://arkpool.lisk-ua.net/]https://arkpool.lisk-ua.net/]https://arkpool.lisk-ua.net/",
+    "sharing": 90.0
+  },
+  "heliohash": {
+    "url": "https://www.youtube.com/watch?v=NetVbCbFJcQ (HOWTO VIDEO: Vote for Delegates)",
+    "sharing": 99.0
+  },
+  "dafty": {
+    "url": "https://forum.ark.io/topic/178/dafty-community-developer-50-pool-bonus-arkbot-tipbot-arkstats-telegram-integration",
+    "sharing": 50.0
+  },
+  "arky": {
+    "url": "https://forum.ark.io/topic/144/arky-delegate-bring-python-into-ark-ecosystem-25-sharing-pool",
+    "sharing": 25.0,
+    "ceil": 70.0
+  },
+  "seatrips": {
+    "url": "https://arkpool.seatrips.eu",
+    "sharing": 90.0
+  },
+  "ghostfaceuk": {
+    "url": "https://forum.ark.io/topic/149/ghostfaceuk-delegate-proposal-proposal-to-forge-a-sharing-node-to-help-those-with-low-ark-to-grow",
+    "sharing": 55.0
+  },
+  "mrgr_pool": {
+    "url": "https://forum.ark.io/topic/198/mrgr_pool-experienced-delegate-developer-responsive-40-profit-sharing-pool",
+    "sharing": 40.0
+  },
+  "axi": {
+    "url": "https://forum.ark.io/topic/170/axi-delegate-supporting-ark-project-outreach-80-profit-sharing-pool",
+    "sharing": 80.0
+  }
+}
