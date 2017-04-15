@@ -7,6 +7,8 @@ import yawTtk
 
 import os, imp, sys, math, json, binascii
 
+__version__ = "0.9"
+
 _exit=\
 "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAG7AAABuwBHnU4NQAAAAd0SU1FB9sMFws0LDm0tJ4AAAKWSURBVDjLjZJNSxtR"\
 "FIafO6OGMaMkuhCF0A8DAbd1W8yq1IWbQin40eImLjSiXUhIgwS1aiOoiY2g4sIPuutKqq104V9QpCK0pV0NipQx6kykzp0ubIJSW3p2997zPuflvQduqImJCQBGRka6BwYGRgESiQT/VWNjYwBMT0/3ZDIZN5vN"\
@@ -167,7 +169,8 @@ class Share:
 	@staticmethod
 	def arkyShare(votes, contrib, sharing=100., ceil=100., floor=0., **trash):
 		ratio = contrib/(votes+contrib)*100
-		return min(ratio, ceil) if ratio >= floor else 0.
+		ratio = min(ratio, ceil) if ratio >= floor else 0.
+		return ((ratio/100.) * (sharing/100.))*100.
 
 # dialog to ask second secret when needed
 class SecondSecretDialog(dialog.BaseDialog):
@@ -485,6 +488,7 @@ class PoolManager(yawTtk.Canvas):
 			PoolManager.tile_width = max(PoolManager.tile_width, float(pool.tk.call("winfo", "reqwidth", pool)))
 			if d["rate"] <= 52: single[d["username"]] = Share.arkyShare(float(d["vote"])/100000000, Glob.balance, **p)
 
+		# print(sorted(single.items(), key=lambda i:i[-1], reverse=True))
 		self.tk.setvar("best_pool", "Best share with %s" % sorted(single.items(), key=lambda i:i[-1], reverse=True)[0][0])
 		self.sort(sortby, reverse)
 		self.arrange()
@@ -610,7 +614,7 @@ if __name__ == "__main__":
 	# main window
 	root = yawTtk.Tkinter.Tk()
 	root.withdraw()
-	root.title(u"\u0466rk Easy Investor - © 2016-2017 Toons")
+	root.title(u"\u0466rk Easy Investor - © 2016-2017 Toons - v%s" % __version__)
 	root.setvar("currency", "usd")
 	root.setvar("exchange_price", "coinmarketcap")
 
