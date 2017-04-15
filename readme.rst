@@ -23,8 +23,8 @@ Version
 
 + first mainnet release
 
-The easyiest way to use ``arky``
-================================
+The Ark Investor User Interface
+===============================
 
 ``arky-eiui`` is a simpler way to estimate your interest according to vote you
 made on pool delegates.
