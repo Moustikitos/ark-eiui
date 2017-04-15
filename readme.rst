@@ -11,7 +11,7 @@ Vote for delegate : ``arky``
 
 ``3Jgib9SQiDLYML7QKBYtJUkHq2nyG6Z63D``
 
-.. image:: https://github.com/Moustikitos/arky/raw/master/ark-logo.png
+.. image:: https://raw.githubusercontent.com/Moustikitos/arky/master/ark-logo.png
    :height: 30
 
 ``APREAB1cyRLGRrTBs97BEXNv1AwAPpSQkJ``
@@ -33,7 +33,7 @@ made on pool delegates.
 
 `Dowload arky Easy Investor User Interface for windows x32`_
 
-.. image:: https://github.com/Moustikitos/arky-eiui/raw/master/screenshot.jpg
+.. image:: https://raw.githubusercontent.com/Moustikitos/ark-eiui/master/screenshot.jpg
 
 .. _BSD licence: http://htmlpreview.github.com/?https://github.com/Moustikitos/arky/blob/master/arky.html
 .. _Dowload arky Easy Investor User Interface for windows x64: https://drive.google.com/file/d/0Bz6dDtWRLNUFX1pXM2V0V0xXd2c/view?usp=sharing
