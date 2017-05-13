@@ -19,6 +19,10 @@ Vote for delegate : ``arky``
 Version
 =======
 
+**1.0**
+
++ no account connection needed
+
 **0.9**
 
 + first mainnet release
