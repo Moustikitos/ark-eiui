@@ -525,7 +525,7 @@ class PoolManager(yawTtk.Canvas):
 			self.updateScrollregion()
 
 	def computeChecked(self):
-		if isinstance(Glob.wallet, wallet.Wallet):
+		# if isinstance(Glob.wallet, wallet.Wallet):
 			checked = []
 			for child in [c for c in self.children.values() if isinstance(c, Pool)]:
 				username = child.name.get()
@@ -552,6 +552,19 @@ class PoolManager(yawTtk.Canvas):
 			self.tk.setvar("ESTIMATED_ARK", u"\u0466%.1f/month" % (share*12600/100))
 			self.tk.setvar("ESTIMATED_USD", Glob.currency_symbol + u"%.1f/month" % (share*12600*Glob.exchange_rate/100))
 
+
+class Investment(yawTtk.Frame):
+
+	def __init__(self, *args, **kw):
+		yawTtk.Frame.__init__(self, *args, **kw)
+		self.columnconfigure(0, weight=1)
+		self.value = yawTtk.Tkinter.DoubleVar(self, value=0.)
+		yawTtk.Label(self, font=("tahoma", 12, "bold"), text=u"\u0466rk amout you want to invest in pool delegates :").grid(row=0, column=0, pady=4, padx=4, sticky="nesw")
+		yawTtk.Spinbox(self, font=("tahoma", 12, "bold"), textvariable=self.value).grid(row=0, column=1, pady=4, padx=4)
+
+	def update(self):
+		try: Glob.balance = float(self.value.get())
+		except: Glob.balance = 0.
 
 class Banner(yawTtk.Frame):
 
@@ -644,61 +657,65 @@ if __name__ == "__main__":
 	appmenu.add("command", image=_exit, compound="left", ulabel="E_xit", command=sys.exit)
 	menubar.add("cascade", ulabel="_App", menu=appmenu)
 
+	spin = Investment(toplevel, relief="solid", padding=2)
+	spin.pack(side="top", fill="x", padx=4, pady=4)
+	
 	banner = Banner(toplevel, relief="solid", background="white", padding=2)
-	support = ArkySupport(banner, cursor="hand2", padding=(5,0), foreground="blue")
+	# support = ArkySupport(banner, cursor="hand2", padding=(5,0), foreground="blue")
 	banner.pack(side="top", fill="x", padx=4, pady=4)
 
-	paned = yawTtk.Frame(toplevel, border=0)
+	paned = yawTtk.Frame(toplevel, border=0, background="red")
 	paned.pack(fill="both", expand=True, padx=4, pady=4)
 	paned.rowconfigure(0, weight=1)
-	paned.columnconfigure(0, minsize=280)
-	paned.columnconfigure(1, minsize=8)
-	paned.columnconfigure(2, weight=1, minsize=350)
+	paned.columnconfigure(0, weight=1)
+	# paned.columnconfigure(1, minsize=8)
+	# paned.columnconfigure(2, weight=1, minsize=350)
 
 	# paned = yawTtk.Tkinter.PanedWindow(toplevel, orient="horizontal", sashwidth=8, border=0)
 	# paned.pack(fill="both", expand=True, padx=4, pady=4)
 
-	frame1 = yawTtk.Frame(paned, padding=0)
-	frame1.grid(row=0, column=0, sticky="nesw")
-	frame1.columnconfigure(1, minsize=70)
-	frame1.columnconfigure(2, weight=1)
-	frame1.rowconfigure(2, weight=1)
-	yawTtk.Label(frame1, text=u"Select \u0466RK \u0467ccount", padding=(0,0,2,0), font=("tahoma", 8, "bold")).grid(row=0, column=0, sticky="nesw")
-	linker = Linker(frame1)
-	linker.grid(row=1, column=0, columnspan=3, sticky="nesw", pady=2)
-	status = Status(frame1, padding=2, text=u"St\u0467tus")
-	status.grid(row=2, column=0, columnspan=3, sticky="nesw")
+	# frame1 = yawTtk.Frame(paned, padding=0)
+	# frame1.grid(row=0, column=0, sticky="nesw")
+	# frame1.columnconfigure(1, minsize=70)
+	# frame1.columnconfigure(2, weight=1)
+	# frame1.rowconfigure(2, weight=1)
+	# yawTtk.Label(frame1, text=u"Select \u0466RK \u0467ccount", padding=(0,0,2,0), font=("tahoma", 8, "bold")).grid(row=0, column=0, sticky="nesw")
+	# linker = Linker(frame1)
+	# linker.grid(row=1, column=0, columnspan=3, sticky="nesw", pady=2)
+	# status = Status(frame1, padding=2, text=u"St\u0467tus")
+	# status.grid(row=2, column=0, columnspan=3, sticky="nesw")
 	# paned.add(frame1, minsize=280, stretch="never")
 
 	frame2 = yawTtk.Frame(paned, name="bottom", relief="flat", borderwidth=0)
-	frame2.grid(row=0, column=2, sticky="nesw")
+	frame2.grid(row=0, column=0, sticky="nesw")
 	frame2.columnconfigure(0, weight=1)
 	frame2.rowconfigure(0, weight=1)
-	yawTtk.Label(frame2, relief="solid", padding=(5,0), textvariable="best_pool", font=("tahome", 8, "bold")).grid(row=1, column=0, columnspan=2, sticky="nesw", pady=2)
-	lock = VoteLocker(frame2, relief="solid", background="orange", padding=(5,0), cursor="hand2", foreground="blue", text="Account vote locked")
-	lock.grid(row=1, column=0, columnspan=2, sticky="nes", pady=2)
+	# yawTtk.Label(frame2, relief="solid", padding=(5,0), textvariable="best_pool", font=("tahome", 8, "bold")).grid(row=1, column=0, columnspan=2, sticky="nesw", pady=2)
+	# lock = VoteLocker(frame2, relief="solid", background="orange", padding=(5,0), cursor="hand2", foreground="blue", text="Account vote locked")
+	# lock.grid(row=1, column=0, columnspan=2, sticky="nes", pady=2)
 	border = yawTtk.Frame(frame2, relief="sunken", borderwidth=2)
 	dmg = PoolManager(border, border=0, relief="flat", highlightthickness=0)
 	dmg.bind("<Configure>", dmg.arrange)
 	dmg.pack(fill="both", expand=True, padx=0, pady=0)
+	dmg.populate()
 	scrolly = yawTtk.Autoscrollbar(frame2, target=dmg, orient="vertical")
 	border.grid(row=0, column=0, sticky="nesw")
 	scrolly.grid(row=0, column=1, sticky="nesw")
 	# paned.add(frame2, minsize=350, stretch="always")
 
-	linker.bind("<<ComboboxSelected>>", lambda e:[
-		linker.linkAccount(),
-		dmg.populate(),
-		banner.update(),
-		status.fill(),
-		support.show()
-	])
+	# linker.bind("<<ComboboxSelected>>", lambda e:[
+	# 	linker.linkAccount(),
+	# 	dmg.populate(),
+	# 	banner.update(),
+		# status.fill(),
+		# support.show()
+	# ])
 
 	def _loop(obj, func, ms):
 		getattr(obj, func)()
 		setattr(Glob, "_update%s"%id(obj), toplevel.after(ms, lambda o=obj,f=func,d=ms: _loop(o,f,d)))
-	_loop(dmg,    "computeChecked", 1000)
-	_loop(linker, "fill",           1000)
+	_loop(dmg,  "computeChecked", 1000)
+	_loop(spin, "update",         1000)
 
 	toplevel.protocol('WM_DELETE_WINDOW', sys.exit)
 	toplevel.configure(menu=menubar)
